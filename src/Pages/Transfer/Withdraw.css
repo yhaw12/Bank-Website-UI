@@ -1,0 +1,141 @@
+#transfer-money-section,
+#withdraw-money-section {
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#transfer-money-form,
+#withdraw-money-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#transfer-money-section h2,
+#withdraw-money-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#transfer-money-form label,
+#withdraw-money-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+#transfer-money-form input,
+#withdraw-money-form input,
+#transfer-money-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#transfer-money-form select,
+#withdraw-money-form select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: #fff url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-512.png') no-repeat right 10px center;
+    background-size: 14px;
+}
+
+#transfer-money-form button,
+#withdraw-money-form button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#transfer-money-form button:hover,
+#withdraw-money-form button:hover {
+    background-color: #45a049;
+}
+
+
+/* Add this CSS to your style.css file */
+
+/* Style for the Withdraw Money section */
+#withdraw-money-section {
+    display: none;
+    margin-top: 20px;
+}
+
+#withdraw-money-section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#withdraw-money-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#withdraw-money-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#withdrawal_type,
+#withdrawal_amount,#operator {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+#withdrawal_amount:focus,
+#withdrawal_amount:focus,#operator:focus {
+    border-color: #3498db;
+}
+
+button[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Add more styles as needed */
+
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 600px) {
+    #transfer-money-form {
+        width: 100%;
+    }
+}
