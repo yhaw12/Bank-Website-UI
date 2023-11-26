@@ -1,71 +1,105 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../Sidebar/Sidebar.css'
-import { BxSmile, BxDashboard, BxShoppingBagAlt,
-   BxDoughnutChart, BxMessageDots, BxGroup, BxCog,
-    BxLogOutCircle } from 'react-icons/bx';
+import '../Sidebar/Sidebar.css';
+import { BiSmile, BiSolidDashboard, BiShoppingBag, BiDoughnutChart, BiMessageDots, BiGroup, BiCog, BiLogOutCircle } from 'react-icons/bi';
 
-function Sidebar() {
+const Sidebar = ({ isOpen, toggleSidebar, isHidden, setIsHidden }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleItemClick = (index) => {
+    setActiveIndex(index);
+  }
+
+  const iconMapping = {
+    BiSolidDashboard: <BiSolidDashboard />,
+    BiShoppingBag: <BiShoppingBag />,
+    BiDoughnutChart: <BiDoughnutChart />,
+    BiMessageDots: <BiMessageDots />,
+    BiGroup: <BiGroup />,
+    BiCog: <BiCog />,
+    BiLogOutCircle: <BiLogOutCircle />
+  };
+
+  const menuItems = [
+    {
+      name: 'Dashboard',
+      icon: 'BiSolidDashboard',
+      link: '/dashboard'
+    },
+    {
+      name: 'Transfer Money',
+      icon: 'BiShoppingBag',
+      link: '/transfer'
+    },
+    {
+      name: 'Withdraw Money',
+      icon: 'BiDoughnutChart',
+      link: '/withdraw'
+    },
+    {
+      name: 'My Account',
+      icon: 'BiDoughnutChart',
+      link: '/accounts'
+    },
+    { 
+      name: 'Message',
+      icon: 'BiMessageDots'
+    },
+    { 
+      name: 'Team',
+      icon: 'BiGroup'
+    },
+    
+  ];
+
+  const bottomList = [
+    { 
+      name: 'Settings',
+      icon: 'BiCog',
+      link: 'settings'
+    },
+    { 
+      name: 'Logout',
+      icon: 'BiLogOutCircle',
+      link: 'logout'
+    }
+  ]
+
   return (
-    <section id="sidebar">
-      <Link to="#" className="brand">
-        <BxSmile/>
-        <span className="text">Flash Bank</span>
-      </Link>
-      <ul className="side-menu top">
-        <li className="active">
-          <Link to="#">
-            <BxDashboard/>
-            <span className="text">Dashboard</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <BxShoppingBagAlt/>
-            <span className="text">Transfer Money</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <BxDoughnutChart/>
-            <span className="text">Withdraw Money</span>
-          </Link>
-        </li>
-        <li>
-				<Link to="#">
-          <BxDoughnutChart/>
-					<span class="text">My Account</span>
-				</Link>
-			</li>
-			<li>
-				<Link to="#">
-          <BxMessageDots/>
-					<span class="text">Message</span>
-				</Link>
-			</li>
-			<li>
-				<Link to="#">
-          <BxGroup/>
-					<span class="text">Team</span>
-				</Link>
-			</li>
-      </ul>
-      <ul class="side-menu">
-			<li>
-				<Link to="#">
-          <BxCog/>
-					<span class="text">Settings</span>
-				</Link>
-			</li>
-			<li>
-				<Link to="#" class="logout">
-          <BxLogOutCircle/>
-					<span class="text">Logout</span>
-				</Link>
-			</li>
-		</ul>
-    </section>
-  );
-}
+  <div id="sidebar" className={`${isOpen ? 'open' : ''} ${isHidden ? 'hide' : ''}`}>
 
-export default Sidebar;
+      <section >
+        <Link to="#" className="brand">
+          <BiSmile/>
+          {!isHidden && <span className="text">Flash Bank</span>}
+        </Link>
+        <ul className="side-menu top">
+          {menuItems.map((item, index) => (
+            <li key={index} className={index === activeIndex ? 'active' : ''}>
+              <Link to={item.link} onClick={() => handleItemClick(index)}>
+                {iconMapping[item.icon]}
+                {!isHidden && <span className="text">{item.name}</span>}
+              </Link>
+            </li>
+            ))}
+          </ul>
+          <ul className="side-menu">
+      {bottomList.map((item, index) => (
+        <li key={index}>
+          <Link 
+            to="#" 
+            onClick={() => handleItemClick(index)}
+            className={index === bottomList.length - 1 ? 'logout' : ''}
+          >
+            {iconMapping[item.icon]}
+            {!isHidden && <span className="text">{item.name}</span>}
+          </Link>
+        </li>
+      ))}
+    </ul>
+          </section>
+        </div>
+      );
+    };
+    
+    export default Sidebar;

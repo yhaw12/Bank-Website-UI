@@ -62,7 +62,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: var(--blue);
+	background: var(--blue); 
 	color: var(--light);
 	font-size: 18px;
 	border: none;
@@ -70,6 +70,16 @@
 	border-radius: 0 36px 36px 0;
 	cursor: pointer;
 }
+#content nav form .form-input button .index{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.index{
+	z-index: 2000;
+}
+
 #content nav .notification {
 	font-size: 20px;
 	position: relative;

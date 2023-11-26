@@ -32,11 +32,19 @@
 	padding-bottom: 20px;
 	box-sizing: content-box;
 }
-#sidebar .brand .bx {
-	min-width: 60px;
+#sidebar .brand svg {
+	margin-right: 10px;
+	margin-left: 10px;
+  }
+#sidebar .side-menu li a svg {
+	margin-right: 10px;
+  }
+
+#sidebar.hide .side-menu li a {
 	display: flex;
 	justify-content: center;
-}
+	align-items: center;
+  }
 #sidebar .side-menu {
 	width: 100%;
 	margin-top: 48px;
@@ -103,4 +111,9 @@
 	min-width: calc(60px  - ((4px + 6px) * 2));
 	display: flex;
 	justify-content: center;
+}
+
+#sidebar.hide ~ #content {
+	width: calc(100% - 60px);
+	left: 60px;
 }
