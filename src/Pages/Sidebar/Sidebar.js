@@ -43,11 +43,13 @@ const Sidebar = ({ isOpen, toggleSidebar, isHidden, setIsHidden }) => {
     },
     { 
       name: 'Message',
-      icon: 'BiMessageDots'
+      icon: 'BiMessageDots',
+      link: 'message'
     },
     { 
       name: 'Team',
-      icon: 'BiGroup'
+      icon: 'BiGroup',
+      link: 'team'
     },
     
   ];

@@ -9,6 +9,8 @@ import Dashboard from './Pages/Dashboard';
 import Accounts from './Pages/Accounts';
 import Settngs from './Pages/Settings';
 import Logout from './Pages/Logout';
+import Message from './Pages/Message';
+import Team from './Pages/Team';
 
 
 
@@ -20,6 +22,8 @@ const router = createBrowserRouter(
         <Route path='transfer' element={<TransferMoney/>} />
         <Route path='withdraw' element={<WithdrawMoney/>} />
         <Route path='accounts' element={<Accounts/>} />
+        <Route path='message' element={<Message/>} />
+        <Route path='team' element={<Team/>} />
         <Route path='settings' element={<Settngs/>} />
         <Route path='logout' element={<Logout/>} />
         </Route> 
